@@ -1,1 +1,3 @@
-# KienTrucPhanMem_Tuan1
+# KienTrucPhanMem
+Name: Nguyễn Đức Tài
+Mssv: 20077681
