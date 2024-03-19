@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Tin Sản Phẩm</title>
+</head>
+<body>
+<a href="/" style="margin-right: 50px">Đặt Hàng Online </a>
+<a href="/product">Bảng Sản Phẩm</a>
+<h1> Bảng Thông Tin Sản Phẩm </h1>
+<form action="/product/add" method="post" enctype="multipart/form-data" th:object="${newProduct}">
+    <label for=""> Nhập Tên Sản Phẩm :</label>
+    <input type="text" th:field="*{name}" placeholder="Nhập Tên Sản Phẩm  " required>  <br> <br>
+    <label for=""> Nhập Giá:</label>
+    <input type="number" th:field="*{price}" placeholder="Nhập Giá" required> <br> <br>
+
+    <label for=""> Nhập Số Luợng Sản Phẩm :</label>
+    <input type="number" th:field="*{quantity}"  placeholder="Nhập Số Luợng Đặt" required> <br> <br>
+    <input type="submit" value="Thêm Sản Phẩm">
+</form>
+
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+    <label> Danh Sách Sản Phẩm </label>
+    <br>
+    <br>
+    <table border="1" >
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Số Lượng Trong Kho</th>
+        </tr>
+        </thead>
+        <tbody style="text-align: center">
+            <th:block th:each="product : ${listproduct}">
+                <tr>
+                    <td>
+                        <span th:text="${product.id}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${product.name}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${product.price}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${product.quantity}"></span>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

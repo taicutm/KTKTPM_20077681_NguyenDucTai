@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Hàng Online </title>
+</head>
+<body>
+<a href="/" style="margin-right: 50px">Đặt Hàng Online </a>
+<a href="/product">Bảng Sản Phẩm</a>
+    <h1> Đặt Hàng Online </h1>
+    <form action="/productorder/add" method="post" enctype="multipart/form-data" th:object="${newProductOrder}" >
+       <label for=""> Nhập Tên KH:</label>
+        <input type="text" th:field="*{customerName}"  placeholder="Nhập Họ Tên KH : " required>  <br> <br>
+        <label for=""> Nhập Sản Phẩm  Đặt:</label>
+        <select name="productId">
+            <option th:each="product : ${listproduct}"
+                    th:value="${product.id}"
+                    th:text="${product.name}">
+            </option>
+        </select>
+        <br>
+        <br>
+        <label for=""> Nhập Số Luợng Đặt :</label>
+        <input type="number" th:field="*{quantity_order}"  placeholder="Nhập Số Luợng Đặt :" required> <br> <br>
+        <label for=""> Nhập Email :</label>
+        <input type="email" th:field="*{customerEmail}"  placeholder="Nhập Email :" required> <br> <br>
+        <input type="submit" value="Đặt Hàng">
+    </form>
+
+    <br>
+    <form action="" method="post" enctype="multipart/form-data">
+
+        <label> Danh Sách Đơn Đặt Hàng </label>
+        <br>
+        <br>
+        <table border="1"  style="text-align: center" >
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên Khách Hàng</th>
+                <th>Email</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Lượng Đặt</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="listproductorder : ${listproductorder}">
+                <tr>
+                    <td>
+                        <span th:text="${listproductorder.id}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${listproductorder.customerName}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${listproductorder.customerEmail}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${listproductorder.product.name}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${listproductorder.quantity_order}"></span>
+                    </td>
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </form>
+
+    <br>
+<form action="" method="post" enctype="multipart/form-data">
+    <label> Danh Sách Sản Phẩm </label>
+    <br>
+    <br>
+    <table border="1" >
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Số Lượng Trong Kho</th>
+        </tr>
+        </thead>
+        <tbody style="text-align: center">
+        <th:block th:each="product : ${listproduct}">
+            <tr>
+                <td>
+                    <span th:text="${product.id}"></span>
+                </td>
+                <td>
+                    <span th:text="${product.name}"></span>
+                </td>
+                <td>
+                    <span th:text="${product.price}"></span>
+                </td>
+                <td>
+                    <span th:text="${product.quantity}"></span>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>
