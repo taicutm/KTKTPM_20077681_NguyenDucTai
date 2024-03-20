@@ -6,10 +6,8 @@
 
 [![N|Solid](https://i.imgur.com/pRbcOmw.jpeg)]()
 
-Bài tập giúp ôn tập lại các kiến thức vcề JPA , Hibernate ,MariaDb ThymeLaf ,LooBook,,, Sử dụng hàng đợi ActiveMQ , Sử dụng Java mail 
+Bài tập giúp ôn tập lại các kiến thức về JPA , Hibernate ,MariaDb ThymeLaf ,LooBook,,, Sử dụng hàng đợi ActiveMQ , Sử dụng Java mail 
 
-- Type some Markdown on the left
-- See HTML in the right
 - ✨Magic ✨
 
 ## Kết Quả
